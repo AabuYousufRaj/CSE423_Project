@@ -968,6 +968,7 @@ def keyboard(key, x, y):
     elif key == b'r':  # Start the rain
         if not raindrops_falling:
             raindrops_falling = True
+            snowfall_active = False
             for _ in range(150):  # Initialize raindrops when they start falling
                 generate_raindrop()
         glutPostRedisplay()
@@ -978,6 +979,7 @@ def keyboard(key, x, y):
         glutPostRedisplay()
     elif key == b'w':  # Start or stop snowfall
         snowfall_active = not snowfall_active
+        raindrops_falling = False
         if snowfall_active:
             for _ in range(150):  # Initialize snowflakes
                 generate_snowflake()
